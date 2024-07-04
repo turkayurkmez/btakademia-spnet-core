@@ -1,0 +1,17 @@
+﻿@model UserResponse
+@{
+    ViewData["Title"] = "Thanks";
+   
+}
+
+
+
+<h1>Thanks</h1>
+@if(Model.IsApproved){
+    <p>Buna çok sevindik @Model.Name orada görüşürüz</p>
+}
+else{
+    <p>Gelemeyeceğiniz için üzüldük @Model.Name</p>
+
+}
+

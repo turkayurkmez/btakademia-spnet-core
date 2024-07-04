@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<Person>
+
+
+
+    <h3> Burası Home/Index...</h3>
+    <p> Hoşgeldin @ViewBag.Ad </p>
+    @if (ViewBag.Saat <12)
+    {
+        <p>Günaydın</p>
+    }
+    else if (ViewBag.Saat >=12 && ViewBag.Saat <= 18)
+    {
+        <p>İyi Günler</p>
+    }
+    else
+    {
+        <p>İyi Akşamlar</p>
+
+    }
+
+    <ul>
+        @foreach (var ulke in ViewBag.Ulkeler)
+        {
+            <li>@ulke</li>
+        }
+
+
+    </ul>
+
+    <ul>
+        @foreach (dynamic person in ViewBag.People)
+        {
+            <li>@person.Name  @person.LastName </li>
+        }
+    </ul>
+
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name @item.LastName (@item.Description)</li>
+        }
+    </ul>
+
+    <p>Bu haftasonu pikniğimize katılmak için <a class="btn btn-success" asp-controller="Home" asp-action="InviteResponse">Tıklayınız</a></p>
+

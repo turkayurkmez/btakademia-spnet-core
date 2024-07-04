@@ -1,0 +1,21 @@
+﻿@model UserResponse
+
+
+
+
+
+
+    <form asp-action="InviteResponse">
+        <input class="form-control" asp-for="Name"  placeholder="Adınız"   />
+        <span class="form-control alert alert-danger" asp-validation-for="Name"></span>
+        <br />
+        <input class="form-control" asp-for="LastName"  placeholder="Soyadınız"  /> <br />
+        <input asp-for ="Email"  placeholder="E-posta"  /> <br />
+        <select asp-for="IsApproved" >
+            <option value="True">Geliyorum</option>
+            <option value="False">Gelmiyorum</option>
+        </select>
+
+        <button type="submit">Yanıtı Gönder</button>
+
+    </form>
