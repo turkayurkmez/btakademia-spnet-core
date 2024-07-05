@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.MVC", "eshop.MVC\esho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Application", "eshop.Application\eshop.Application.csproj", "{15EB601B-C693-4B1E-8922-5C2F14A012FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Infrastructure", "eshop.Infrastructure\eshop.Infrastructure.csproj", "{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Domain", "eshop.Domain\eshop.Domain.csproj", "{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{15EB601B-C693-4B1E-8922-5C2F14A012FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15EB601B-C693-4B1E-8922-5C2F14A012FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15EB601B-C693-4B1E-8922-5C2F14A012FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

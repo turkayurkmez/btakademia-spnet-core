@@ -4,7 +4,7 @@ using eshop.Application.DataTransferObjects.Responses;
 
 namespace eshop.Application.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
 
         private List<ProductCardResponse> _products;
@@ -16,10 +16,10 @@ namespace eshop.Application.Services
                 new(){ Id=2, Name="Samsung ", Description="16GB Ram", Price=17000},
                 new(){ Id=3, Name="IPad ", Description="8GB Ram", Price=25000},
                 new(){ Id=4, Name="Homend ", Description="8GB Ram", Price=5000},
-                new(){ Id=1, Name="A", Description="8GB Ram", Price=10000},
-                new(){ Id=2, Name="B ", Description="16GB Ram", Price=17000},
-                new(){ Id=3, Name="C ", Description="8GB Ram", Price=25000},
-                new(){ Id=4, Name="D ", Description="8GB Ram", Price=5000}
+                new(){ Id=5, Name="A", Description="8GB Ram", Price=10000},
+                new(){ Id=6, Name="B ", Description="16GB Ram", Price=17000},
+                new(){ Id=7, Name="C ", Description="8GB Ram", Price=25000},
+                new(){ Id=8, Name="D ", Description="8GB Ram", Price=5000}
 
             };
         }

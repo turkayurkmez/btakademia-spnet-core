@@ -1,0 +1,3 @@
+﻿eshop.Infrastructure
+
+Bu katman, yapısal değişiklikleri tutar. Veritabanına nasıl erişeceğiniz ya da Nasıl (hangi araçlarla) e-posta göndereceğiniz burada tanımlanır. 

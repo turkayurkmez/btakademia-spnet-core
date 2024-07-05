@@ -1,0 +1,5 @@
+﻿ESHOP.APPLICATION
+
+Bu katman, uygulamanızın "değişmez" işlevlerinin bulunduğu kritik bir katmandır. 
+Örneğin; 
+"Bu uygulama sayesinde müşteriler ürün arayabilir" diyorsanız; bu işlev bu katmanın bir görevidir. 

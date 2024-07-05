@@ -1,0 +1,3 @@
+﻿eshop.Domain
+
+Bu katman veritabanı varlıklarını temsil eden katmandır. Entity'leri burada tutarsınız.

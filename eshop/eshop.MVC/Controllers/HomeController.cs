@@ -8,10 +8,11 @@ namespace eshop.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IProductService _productService;
+        public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
         public IActionResult Index()
@@ -23,8 +24,8 @@ namespace eshop.MVC.Controllers
              *  3. Ürünlerin nasıl geleceği (EF, ADO, HttpClient vs)
              *  
              */
-            var productService = new  ProductService();
-            var products = productService.GetProductCardResponses();
+            //var productService = new  ProductService();
+            var products = _productService.GetProductCardResponses();
             return View(products);
         }
 
