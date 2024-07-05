@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eshop.Infrastructure.Repositories
 {
-    internal class FakeProductRepository : IProductRepository
+    public class FakeProductRepository : IProductRepository
     {
         private List<Product> _products;
         public FakeProductRepository()

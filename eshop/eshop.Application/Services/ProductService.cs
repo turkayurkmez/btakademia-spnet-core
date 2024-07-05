@@ -33,7 +33,15 @@ namespace eshop.Application.Services
         //}
         public List<ProductCardResponse> GetProductCardResponses()
         {
-            return null;
+            var products = _productRepository.GetAll();
+            return products.Select(p => new ProductCardResponse
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description ?? "Açıklama yok",
+                ImageUrl = p.ImageUrl ?? "https://picsum.photos/200",
+                Price = p.Price
+            }).ToList();
         }
     }
 }
