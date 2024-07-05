@@ -21,6 +21,7 @@ namespace eshop.Domain
         public bool IsActive { get; set; } = true;
         public string? Status { get; set; }
 
+        public int CategoryId { get; set; }
 
     }
 }

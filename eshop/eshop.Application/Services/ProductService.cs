@@ -31,9 +31,10 @@ namespace eshop.Application.Services
 
         //    //};
         //}
-        public List<ProductCardResponse> GetProductCardResponses()
+        public List<ProductCardResponse> GetProductCardResponses(int? categoryId=null)
         {
-            var products = _productRepository.GetAll();
+            var products = categoryId is null ?  _productRepository.GetAll() : _productRepository.GetProductsByCategoryId(categoryId.Value);
+
             return products.Select(p => new ProductCardResponse
             {
                 Id = p.Id,

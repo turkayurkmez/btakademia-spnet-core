@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ProductCardResponse>
 @{
     ViewData["Title"] = "Home Page";
+    var count = 0;
 }
 
 <div class="text-center">
@@ -9,26 +10,33 @@
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row m-4">
 
         @foreach (var productCard in Model)
         {
+            if (count != 0 && count % 4 == 0)
+            {
+                @:</div>
+                @:<div class="row m-4">
+            }
             <div class="col-3">
-                <div class="card">
-                    <img class="img-thumbnail" src="@productCard.ImageUrl" alt="@productCard.Name" />
-                    <div class="card-body">
-                        <p class="card-text">@productCard.Name</p>
-                        <p class="card-text">@productCard.Description</p>
-                        <p class="card-text">@productCard.Price TL</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success ">Sepete Ekle</button>
-                    </div>
-
-                </div>
+               <partial name="_ProductCard" model="productCard"/>
             </div>
+            count++;
         }
     </div>
 
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+            @for (int i =1 ; i <= ViewBag.TotalPage; i++)
+            {
+                 <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNo="@i">@i</a></li>
+            }    
+            
+          
+        </ul>
+    </nav>
+
 </div>
+
 

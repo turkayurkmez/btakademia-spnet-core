@@ -4,6 +4,7 @@ namespace eshop.Application.Services
 {
     public interface IProductService
     {
-        List<ProductCardResponse> GetProductCardResponses();
+        List<ProductCardResponse> GetProductCardResponses(int? categoryId=null);
+        
     }
 }

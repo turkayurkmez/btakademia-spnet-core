@@ -15,7 +15,7 @@ namespace eshop.MVC.Controllers
             _productService = productService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNo=1, int? categoryId=null)
         {
             /*
              * Burada değişiklik yapmak için karşılaşabileceğiniz çok sebep var
@@ -25,8 +25,23 @@ namespace eshop.MVC.Controllers
              *  
              */
             //var productService = new  ProductService();
-            var products = _productService.GetProductCardResponses();
-            return View(products);
+
+            var products = _productService.GetProductCardResponses(categoryId) ;
+            var total = products.Count;
+            var pageSize = 8;
+            var totalPage = (int)Math.Ceiling( (decimal)total/ pageSize);
+            ViewBag.TotalPage = totalPage;
+
+            /*    ((pageNo-1)pageSize)   (pageSize * pageNo) 
+             *1:  0..8
+             *2:  8..16
+             */
+
+            var startIndex = ((pageNo - 1) * pageSize);
+            var endIndex = startIndex + pageSize;
+            var paginatedProducts = products.Take(startIndex..endIndex);
+
+            return View(paginatedProducts);
         }
 
         public IActionResult Privacy()

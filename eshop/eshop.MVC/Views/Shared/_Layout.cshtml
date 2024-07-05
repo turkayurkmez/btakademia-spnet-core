@@ -29,8 +29,10 @@
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
+        @await Component.InvokeAsync("Menu")
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
