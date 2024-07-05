@@ -1,4 +1,4 @@
-﻿namespace eshop.MVC.Models
+﻿namespace eshop.Application.DataTransferObjects.Responses
 {
     public class ProductCardResponse
     {
