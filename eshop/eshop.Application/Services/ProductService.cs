@@ -15,6 +15,19 @@ namespace eshop.Application.Services
             _productRepository = productRepository;
         }
 
+        public ProductCardResponse GetProductCardResponse(int id)
+        {
+            var product = _productRepository.GetById(id);
+            return new ProductCardResponse
+            {
+                Description = product.Description,
+                Id = product.Id,
+                ImageUrl = product.ImageUrl,
+                Name = product.Name,
+                Price = product.Price,
+            };
+        }
+
         //public ProductService()
         //{
         //    //Bu işlem repository'nin soumluluğunda.

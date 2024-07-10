@@ -39,7 +39,7 @@ namespace eshop.Infrastructure.Repositories
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _products.FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
