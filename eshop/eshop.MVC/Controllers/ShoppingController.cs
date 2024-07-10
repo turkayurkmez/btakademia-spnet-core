@@ -1,6 +1,7 @@
 ﻿using eshop.Application.Services;
 using eshop.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace eshop.MVC.Controllers
 {
@@ -16,19 +17,21 @@ namespace eshop.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var shopping = getCollectionFromSession();
+            return View(shopping);
         }
 
         public IActionResult AddToCard(int id)
         {
             var productResponse =  productService.GetProductCardResponse(id);
 
-            //eğer session içinde varsa; sepette ürün vardır
-            //................... yoksa; ilk kez sepet oluşuyordur.
+         
             ShoppingCardCollection shoppingCardCollection = getCollectionFromSession();
 
             ShoppingCardItem cardItem = new ShoppingCardItem() { Product=productResponse, Quantity =1};
             shoppingCardCollection.Add(cardItem);
+
+            saveToSession(shoppingCardCollection);
 
 
 
@@ -36,9 +39,26 @@ namespace eshop.MVC.Controllers
 
         }
 
+       
+
         private ShoppingCardCollection getCollectionFromSession()
         {
-            return null;
+            //eğer session içinde varsa; sepette ürün vardır
+            //................... yoksa; ilk kez sepet oluşuyordur.
+            var serializedBasket = HttpContext.Session.GetString("sepet");
+            if (serializedBasket != null)
+            {
+                return JsonConvert.DeserializeObject<ShoppingCardCollection>(serializedBasket);
+            }
+            return new ShoppingCardCollection();
+
+
+        }
+
+        private void saveToSession(ShoppingCardCollection shoppingCardCollection)
+        {
+            var serializedBasket = JsonConvert.SerializeObject(shoppingCardCollection);
+            HttpContext.Session.SetString("sepet",serializedBasket);
         }
     }
 }

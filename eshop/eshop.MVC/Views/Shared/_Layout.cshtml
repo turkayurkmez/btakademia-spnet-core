@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json
+@{
+    var serialized = Context.Session.GetString("sepet");
+    ShoppingCardCollection shoppingCardCollection = serialized != null 
+                                                     ? JsonConvert.DeserializeObject<ShoppingCardCollection>(serialized) 
+                                                     : new ShoppingCardCollection();
+
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,7 +32,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Shopping" asp-action="Index">Sepet (@(shoppingCardCollection.GetTotalQuantity())) </a>
                         </li>
                     </ul>
                 </div>
