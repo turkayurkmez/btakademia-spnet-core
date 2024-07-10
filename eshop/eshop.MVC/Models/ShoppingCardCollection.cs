@@ -27,7 +27,7 @@ namespace eshop.MVC.Models
         }
 
         public void Clear() => ShoppingCardItems.Clear();
-        public decimal GetTotalPrice() => ShoppingCardItems.Sum(p => p.Product.Price * p.Quantity);
+        public decimal GetTotalPrice() => ShoppingCardItems.Sum(p => p.Product.Price.Value * p.Quantity);
         public int GetTotalQuantity() => ShoppingCardItems.Sum(p => p.Quantity);
     }
 }
