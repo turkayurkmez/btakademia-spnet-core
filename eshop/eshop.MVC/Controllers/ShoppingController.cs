@@ -23,7 +23,7 @@ namespace eshop.MVC.Controllers
 
         public IActionResult AddToCard(int id)
         {
-            var productResponse =  productService.GetProductCardResponse(id);
+            var productResponse =  productService.GetProductDisplayResponse(id);
 
          
             ShoppingCardCollection shoppingCardCollection = getCollectionFromSession();

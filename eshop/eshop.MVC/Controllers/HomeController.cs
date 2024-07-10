@@ -26,7 +26,7 @@ namespace eshop.MVC.Controllers
              */
             //var productService = new  ProductService();
 
-            var products = _productService.GetProductCardResponses(categoryId) ;
+            var products = _productService.GetProductDisplayResponses(categoryId) ;
             var total = products.Count;
             var pageSize = 8;
             var totalPage = (int)Math.Ceiling( (decimal)total/ pageSize);

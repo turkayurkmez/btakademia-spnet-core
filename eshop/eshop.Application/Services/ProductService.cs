@@ -1,6 +1,8 @@
 ﻿
 
+using eshop.Application.DataTransferObjects.Requests;
 using eshop.Application.DataTransferObjects.Responses;
+using eshop.Domain;
 using eshop.Infrastructure.Repositories;
 
 namespace eshop.Application.Services
@@ -15,10 +17,10 @@ namespace eshop.Application.Services
             _productRepository = productRepository;
         }
 
-        public ProductCardResponse GetProductCardResponse(int id)
+        public ProductDisplayResponse GetProductDisplayResponse(int id)
         {
             var product = _productRepository.GetById(id);
-            return new ProductCardResponse
+            return new ProductDisplayResponse
             {
                 Description = product.Description,
                 Id = product.Id,
@@ -44,11 +46,11 @@ namespace eshop.Application.Services
 
         //    //};
         //}
-        public List<ProductCardResponse> GetProductCardResponses(int? categoryId=null)
+        public List<ProductDisplayResponse> GetProductDisplayResponses(int? categoryId = null)
         {
-            var products = categoryId is null ?  _productRepository.GetAll() : _productRepository.GetProductsByCategoryId(categoryId.Value);
+            var products = categoryId is null ? _productRepository.GetAll() : _productRepository.GetProductsByCategoryId(categoryId.Value);
 
-            return products.Select(p => new ProductCardResponse
+            return products.Select(p => new ProductDisplayResponse
             {
                 Id = p.Id,
                 Name = p.Name,
@@ -56,6 +58,23 @@ namespace eshop.Application.Services
                 ImageUrl = p.ImageUrl ?? "https://picsum.photos/200",
                 Price = p.Price
             }).ToList();
+        }
+
+        public async Task<int> CreateNewProduct(CreateNewProductRequest request)
+        {
+            var product = new Product
+            {
+                CategoryId = request.CategoryId,
+                CreatedDate = DateTime.UtcNow,
+                Description = request.Description,
+                ImageUrl = request.ImageUrl,
+                Name = request.Name,
+                Price = request.Price,
+                Status = request.Status,
+                Stock = request.Stock
+            };
+           await _productRepository.Create(product); 
+            return product.Id;
         }
     }
 }

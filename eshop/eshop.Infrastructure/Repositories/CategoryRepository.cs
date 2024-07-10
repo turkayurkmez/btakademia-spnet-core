@@ -17,6 +17,16 @@ namespace eshop.Infrastructure.Repositories
             this.dbContext = dbContext;
         }
 
+        public Task Create(Category entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Category> GetAll()
         {
             return dbContext.Categories.AsEnumerable();
@@ -25,6 +35,11 @@ namespace eshop.Infrastructure.Repositories
         public Category GetById(int id)
         {
             return dbContext.Categories.FirstOrDefault(c => c.Id == id);
+        }
+
+        public Task Update(Category entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

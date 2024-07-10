@@ -1,11 +1,12 @@
-﻿using eshop.Application.DataTransferObjects.Responses;
+﻿using eshop.Application.DataTransferObjects.Requests;
+using eshop.Application.DataTransferObjects.Responses;
 
 namespace eshop.Application.Services
 {
     public interface IProductService
     {
-        List<ProductCardResponse> GetProductCardResponses(int? categoryId=null);
-        ProductCardResponse GetProductCardResponse(int id);
-        
+        List<ProductDisplayResponse> GetProductDisplayResponses(int? categoryId=null);
+        ProductDisplayResponse GetProductDisplayResponse(int id);
+        Task<int> CreateNewProduct(CreateNewProductRequest request);
     }
 }

@@ -5,7 +5,7 @@ namespace eshop.MVC.Models
 
     public class ShoppingCardItem
     {
-        public ProductCardResponse Product { get; set; }
+        public ProductDisplayResponse Product { get; set; }
         public int Quantity { get; set; }
 
     }

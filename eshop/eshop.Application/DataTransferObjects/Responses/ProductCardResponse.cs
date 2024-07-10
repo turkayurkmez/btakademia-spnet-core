@@ -1,6 +1,6 @@
 ﻿namespace eshop.Application.DataTransferObjects.Responses
 {
-    public class ProductCardResponse
+    public class ProductDisplayResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }
