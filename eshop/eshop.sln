@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.MVC", "eshop.MVC\eshop.MVC.csproj", "{23539978-061E-4E54-84B8-6FB8FF9C97D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eshop.MVC", "eshop.MVC\eshop.MVC.csproj", "{23539978-061E-4E54-84B8-6FB8FF9C97D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Application", "eshop.Application\eshop.Application.csproj", "{15EB601B-C693-4B1E-8922-5C2F14A012FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eshop.Application", "eshop.Application\eshop.Application.csproj", "{15EB601B-C693-4B1E-8922-5C2F14A012FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Infrastructure", "eshop.Infrastructure\eshop.Infrastructure.csproj", "{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eshop.Infrastructure", "eshop.Infrastructure\eshop.Infrastructure.csproj", "{CCFD2B7A-73A6-4152-A75C-AF7A03013B97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Domain", "eshop.Domain\eshop.Domain.csproj", "{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eshop.Domain", "eshop.Domain\eshop.Domain.csproj", "{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.API", "eshop.API\eshop.API.csproj", "{ADF2D952-4D9B-4144-B996-6DC50DCB9837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.CommonExtensions", "eshop.CommonExtensions\eshop.CommonExtensions.csproj", "{CE065A22-2EEE-4B18-B6C4-31B9FC16396B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F7690E0-BBEB-4DA3-AF79-4E2D5B182896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF2D952-4D9B-4144-B996-6DC50DCB9837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF2D952-4D9B-4144-B996-6DC50DCB9837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF2D952-4D9B-4144-B996-6DC50DCB9837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF2D952-4D9B-4144-B996-6DC50DCB9837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE065A22-2EEE-4B18-B6C4-31B9FC16396B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE065A22-2EEE-4B18-B6C4-31B9FC16396B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE065A22-2EEE-4B18-B6C4-31B9FC16396B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE065A22-2EEE-4B18-B6C4-31B9FC16396B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

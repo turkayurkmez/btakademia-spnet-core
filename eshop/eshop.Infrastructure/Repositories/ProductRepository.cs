@@ -46,6 +46,11 @@ namespace eshop.Infrastructure.Repositories
             return dbContext.Products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
+        public bool IsExists(int id)
+        {
+           return dbContext.Products.Any(x => x.Id == id);
+        }
+
         public IEnumerable<Product> SearchProductsByName(string productName) => dbContext.Products.Where(p => p.Name.Contains(productName)).ToList();
 
         public async Task Update(Product entity)

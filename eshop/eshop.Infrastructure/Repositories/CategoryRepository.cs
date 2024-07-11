@@ -37,6 +37,11 @@ namespace eshop.Infrastructure.Repositories
             return dbContext.Categories.FirstOrDefault(c => c.Id == id);
         }
 
+        public bool IsExists(int id)
+        {
+           return dbContext.Categories.Any(c => c.Id == id);
+        }
+
         public Task Update(Category entity)
         {
             throw new NotImplementedException();

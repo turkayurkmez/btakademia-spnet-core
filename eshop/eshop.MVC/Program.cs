@@ -1,4 +1,5 @@
 using eshop.Application.Services;
+using eshop.CommonExtensions;
 using eshop.Domain;
 using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Repositories;
@@ -9,13 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
 var connectionString = builder.Configuration.GetConnectionString("db");
-builder.Services.AddDbContext<EshopDbContext>(option => option.UseSqlServer(connectionString));
+builder.Services.AddNecessaryInstances(connectionString);
 
 builder.Services.AddSession(option=>option.IdleTimeout = TimeSpan.FromMinutes(1440));
 

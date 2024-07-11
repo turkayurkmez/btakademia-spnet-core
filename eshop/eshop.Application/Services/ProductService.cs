@@ -20,6 +20,7 @@ namespace eshop.Application.Services
         public ProductDisplayResponse GetProductDisplayResponse(int id)
         {
             var product = _productRepository.GetById(id);
+
             return new ProductDisplayResponse
             {
                 Description = product.Description,
@@ -75,6 +76,65 @@ namespace eshop.Application.Services
             };
            await _productRepository.Create(product); 
             return product.Id;
+        }
+
+        public async Task<Product> UpdateProduct(UpdateExistingProductRequest request)
+        {
+            var product = new Product
+            {
+                CategoryId = request.CategoryId,
+                Description = request.Description,
+                Id = request.Id,
+                ImageUrl = request.ImageUrl,
+                Name = request.Name,
+                Price = request.Price,
+                Status = request.Status,
+                Stock = request.Stock,
+                UpdatedDate = DateTime.UtcNow,
+            };
+
+           await _productRepository.Update(product);
+            return product;
+        }
+
+        public async Task DeleteProduct(int id)
+        {
+            await _productRepository.Delete(id);
+        }
+
+        public UpdateExistingProductRequest GetExistingProductForUpdate(int id)
+        {
+            var product = _productRepository.GetById(id);
+            return new UpdateExistingProductRequest()
+            {
+                CategoryId = product.CategoryId,
+                Description = product.Description,
+                Id = product.Id,
+                ImageUrl = product.ImageUrl,
+                Name = product.Name,
+                Price = product.Price,
+                Status = product.Status,
+                Stock = product.Stock,
+            };
+        }
+
+        public List<ProductDisplayResponse> SearchByName(string name)
+        {
+            return _productRepository.SearchProductsByName(name)
+                                     .Select(p => new ProductDisplayResponse
+                                     {
+                                         Description = p.Description,
+                                         Id = p.Id,
+                                         ImageUrl = p.ImageUrl,
+                                         Name = p.Name,
+                                         Price = p.Price
+                                     })
+                                     .ToList();
+        }
+
+        public bool IsProductExist(int id)
+        {
+           return _productRepository.IsExists(id);
         }
     }
 }

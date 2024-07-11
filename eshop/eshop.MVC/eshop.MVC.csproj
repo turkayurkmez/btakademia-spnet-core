@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\eshop.Application\eshop.Application.csproj" />
+    <ProjectReference Include="..\eshop.CommonExtensions\eshop.CommonExtensions.csproj" />
   </ItemGroup>
 
 </Project>
