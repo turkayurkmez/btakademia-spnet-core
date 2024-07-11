@@ -3,6 +3,7 @@ using eshop.CommonExtensions;
 using eshop.Domain;
 using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -14,6 +15,13 @@ var connectionString = builder.Configuration.GetConnectionString("db");
 builder.Services.AddNecessaryInstances(connectionString);
 
 builder.Services.AddSession(option=>option.IdleTimeout = TimeSpan.FromMinutes(1440));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(option => {
+                    option.LoginPath = "/Users/Login";
+                    option.ReturnUrlParameter = "returnUrl";
+                    option.AccessDeniedPath = "/Users/AccessDenied";
+                });
 
 var app = builder.Build();
 
@@ -31,7 +39,7 @@ app.UseStaticFiles();
 
 app.UseSession();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 

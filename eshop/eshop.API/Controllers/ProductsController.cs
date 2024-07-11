@@ -1,6 +1,7 @@
 ﻿using Azure.Core;
 using eshop.Application.DataTransferObjects.Requests;
 using eshop.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -53,6 +54,7 @@ namespace eshop.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
         public async Task<IActionResult> Create(CreateNewProductRequest request)
         {
             if (ModelState.IsValid)

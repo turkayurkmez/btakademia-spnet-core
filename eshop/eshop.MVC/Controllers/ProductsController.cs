@@ -1,10 +1,12 @@
 ﻿using eshop.Application.DataTransferObjects.Requests;
 using eshop.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eshop.MVC.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ProductsController : Controller
     {
         private readonly IProductService productService;

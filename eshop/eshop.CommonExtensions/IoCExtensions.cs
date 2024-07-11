@@ -25,6 +25,7 @@ namespace eshop.CommonExtensions
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IUserService,UserService>();
             services.AddDbContext<EshopDbContext>(option => option.UseSqlServer(connectionString));
             return services;
         }

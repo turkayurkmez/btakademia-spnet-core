@@ -34,6 +34,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Shopping" asp-action="Index">Sepet (@(shoppingCardCollection.GetTotalQuantity())) </a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Logout">@User.Identity.Name (Çıkış)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Giriş </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
